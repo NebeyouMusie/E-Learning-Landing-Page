@@ -1,62 +1,15 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-
-const categories = ["All Courses", "Development", "Data Science", "Business", "Finance"];
-
-const courses = [
-  {
-    id: 1,
-    title: "Complete Web Development Bootcamp",
-    instructor: "Sarah Johnson",
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-    price: 99.99,
-    rating: 4.8,
-    students: 1234,
-  },
-  {
-    id: 2,
-    title: "Data Science Fundamentals",
-    instructor: "Michael Chen",
-    image: "https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg",
-    price: 89.99,
-    rating: 4.7,
-    students: 987,
-  },
-  {
-    id: 3,
-    title: "Business Strategy Masterclass",
-    instructor: "Emma Williams",
-    image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg",
-    price: 129.99,
-    rating: 4.9,
-    students: 2341,
-  },
-];
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Rose Alexander",
-    role: "Web Developer",
-    content: "The courses here completely transformed my career path. The instructors are amazing and the content is top-notch.",
-    avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
-  },
-  {
-    id: 2,
-    name: "Melissa Roberts",
-    role: "Data Analyst",
-    content: "I've taken multiple courses and each one has been worth every penny. The practical projects really help cement the learning.",
-    avatar: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
-  },
-];
+import Navbar from "@/components/Navbar";
+import CourseSection from "@/components/CourseSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
-  const [activeCategory, setActiveCategory] = useState("All Courses");
-
   return (
     <div className="min-h-screen">
+      <Navbar />
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-secondary py-20 sm:py-32">
+      <section id="home" className="relative overflow-hidden bg-secondary py-20 sm:py-32">
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -78,76 +31,10 @@ const Index = () => {
       </section>
 
       {/* Courses Section */}
-      <section className="py-20">
-        <div className="container">
-          <div className="mb-12 text-center">
-            <h2 className="section-title">All Courses of EduLe</h2>
-            <p className="section-subtitle">Choose from our wide range of courses</p>
-          </div>
-
-          {/* Categories */}
-          <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
-                    ? "bg-primary text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Course Grid */}
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.map((course) => (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="course-card"
-              >
-                <div className="aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold">{course.title}</h3>
-                <p className="text-sm text-gray-600">{course.instructor}</p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-lg font-bold text-primary">${course.price}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-600">{course.rating}</span>
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="h-4 w-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="text-sm text-gray-600">({course.students})</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CourseSection />
 
       {/* How It Works Section */}
-      <section className="bg-secondary py-20">
+      <section id="how-it-works" className="bg-secondary py-20">
         <div className="container">
           <div className="mb-16 text-center">
             <h2 className="section-title">How It Works?</h2>
@@ -189,7 +76,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section id="testimonials" className="py-20">
         <div className="container">
           <div className="mb-16 text-center">
             <h2 className="section-title">Feedback From Students</h2>
@@ -240,6 +127,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
