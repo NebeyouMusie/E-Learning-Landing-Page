@@ -3,6 +3,23 @@ import Navbar from "@/components/Navbar";
 import CourseSection from "@/components/CourseSection";
 import Footer from "@/components/Footer";
 
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    role: "Web Development Student",
+    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+    content: "The courses are well-structured and the instructors are very knowledgeable. I've learned so much in such a short time!"
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    role: "Data Science Professional",
+    avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+    content: "The practical approach to learning and hands-on projects have helped me advance my career in data science significantly."
+  }
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen">
