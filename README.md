@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# E-Learning Landing Page
 
 ## Project info
 
